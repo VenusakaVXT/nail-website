@@ -6,11 +6,23 @@
 		<title>Lunas Nail</title>
 		<script src="https://cdn.tailwindcss.com"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+		<style>
+			/* Noise overlay: show only light dots, remove black background */
+			.noise-overlay{position:relative}
+			.noise-overlay::after{
+				content:"";
+				position:absolute;inset:0;
+				background-image:url('public/images/noise2.png');
+				background-repeat:repeat; background-size:auto;
+				mix-blend-mode:screen; /* remove black, keep light dots */
+				opacity:.35; pointer-events:none;
+			}
+		</style>
 	</head>
 	<body class="__variable_fb6800 __variable_3221f3 __variable_8ba1a1 __variable_cc80f9 antialiased">
 		<div class="w-full min-h-screen overflow-x-hidden">
 		<div class="bg-white content-stretch flex flex-col items-start relative size-full" data-name="Nail">
-			<div class="bg-white flex flex-col w-full" data-name="Nav">
+			<header class="bg-white flex flex-col w-full" data-name="Nav">
 				<div class="bg-[#bbaa8e] flex flex-wrap items-center justify-center gap-3 sm:gap-6 px-4 py-2 w-full text-center">
 				  <p class="text-[#141414] text-[13px] sm:text-[14px] font-['Bricolage_Grotesque:Regular',_sans-serif] leading-snug">
 					Tìm hiểu về các chương trình đào tạo của Lush Nail tại đây, nhận ưu đãi lên đến 50%
@@ -62,9 +74,9 @@
 				  <a href="#" class="text-[#333333] text-[13px] sm:text-[14px] md:text-[15px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Cửa hàng</a>
 				  <a href="#" class="text-[#333333] text-[13px] sm:text-[14px] md:text-[15px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Khoá học</a>
 				</div>
-			</div>
+			</header>
 			  
-			<div class="bg-white flex flex-col items-start relative w-full" data-name="hero">
+			<div class="bg-white flex flex-col items-start relative w-full noise-overlay" data-name="hero">
 				<div class="absolute flex h-[388px] items-center justify-center left-0 mix-blend-luminosity top-[532px] w-full">
 				  <div class="flex-none scale-y-[-100%]">
 					<div class="h-[388px] rounded-bl-[80px] rounded-br-[80px] w-full"></div>
@@ -423,85 +435,48 @@
 						</div>
 					</div>
 
-					<!-- Top Row -->
-					<div
-						class="flex flex-wrap justify-center lg:justify-start gap-8 sm:gap-10 mt-10"
-					>
+					<!-- Top Row - Left Aligned -->
+					<div class="content-stretch flex flex-col md:flex-row gap-[30px] items-stretch md:items-center justify-start relative shrink-0 w-full mb-[40px]">
 						<!-- KHOÁ HỌC -->
-						<div class="flex flex-col items-center sm:items-start gap-3">
-						<div
-							class="w-[150px] h-[100px] rounded-[50px] overflow-hidden border border-white"
-						>
-							<img
-							src="https://v0-lush-nail.vercel.app/nail-course.jpg"
-							alt="Khoá học"
-							class="object-cover w-full h-full"
-							/>
+						<div class="content-stretch flex gap-[20px] items-center relative shrink-0 w-full md:w-auto">
+							<div class="h-[80px] md:h-[100px] relative rounded-[50px] shrink-0 w-[140px] md:w-[180px] bg-gray-300 overflow-hidden border border-white">
+								<img class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="https://v0-lush-nail.vercel.app/nail-course.jpg">
+							</div>
+							<div class="content-stretch flex flex-col gap-[8px] items-start relative shrink-0">
+								<div class="content-stretch flex gap-[12px] items-center relative shrink-0">
+									<p class="font-['Bricolage_Grotesque:Light',_sans-serif] font-light leading-[1.2] relative shrink-0 text-[#ae873e] text-[28px] md:text-[36px] text-center text-nowrap tracking-[-1.44px] whitespace-pre" style="font-variation-settings:'opsz' 14, 'wdth' 100">KHOÁ HỌC</p>
+									<div class="h-[16px] w-[16px] relative shrink-0">
+										<svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+											<path d="M23 1L1 23M23 1H13M23 1V11" stroke="#ae873e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+										</svg>
+									</div>
+								</div>
+								<div class="bg-[#ae873e] h-px shrink-0 w-[120px] md:w-[150px]"></div>
+							</div>
 						</div>
-						<p
-							class="text-[#ae873e] text-[24px] sm:text-[32px] lg:text-[36px] font-light tracking-[-1px]"
-						>
-							KHOÁ HỌC
-						</p>
-						</div>
-
 						<!-- MẪU MỚI -->
-						<div class="flex flex-col items-center sm:items-start gap-3">
-						<div
-							class="w-[150px] h-[100px] rounded-[50px] overflow-hidden border border-white"
-						>
-							<img
-							src="https://v0-lush-nail.vercel.app/new-nail-art-designs-glitter.jpg"
-							alt="Mẫu mới"
-							class="object-cover w-full h-full"
-							/>
-						</div>
-						<p
-							class="text-white text-[24px] sm:text-[32px] lg:text-[36px] font-light tracking-[-1px]"
-						>
-							MẪU MỚI
-						</p>
+						<div class="content-stretch flex gap-[20px] items-center relative shrink-0 w-full md:w-auto">
+							<div class="h-[80px] md:h-[100px] relative rounded-[50px] shrink-0 w-[140px] md:w-[180px] bg-gray-300 overflow-hidden border border-white">
+								<img alt="" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="https://v0-lush-nail.vercel.app/new-nail-art-designs-glitter.jpg">
+							</div>
+							<p class="font-['Bricolage_Grotesque:Light',_sans-serif] font-light leading-[1.2] relative shrink-0 text-white text-[28px] md:text-[36px] text-center text-nowrap tracking-[-1.44px] whitespace-pre" style="font-variation-settings:'opsz' 14, 'wdth' 100">MẪU MỚI</p>
 						</div>
 					</div>
-
-					<!-- Bottom Row -->
-					<div
-						class="flex flex-wrap justify-center lg:justify-end gap-8 sm:gap-10"
-					>
+					<!-- Bottom Row - Right Indented -->
+					<div class="content-stretch flex flex-col md:flex-row gap-[30px] items-stretch md:items-center justify-end relative shrink-0 w-full">
 						<!-- PERSONALISED -->
-						<div class="flex flex-col items-center sm:items-start gap-3">
-						<div
-							class="w-[150px] h-[100px] rounded-[50px] overflow-hidden border border-white"
-						>
-							<img
-							src="https://v0-lush-nail.vercel.app/personalized-custom-nail-art-blue.jpg"
-							alt="Personalised"
-							class="object-cover w-full h-full"
-							/>
+						<div class="content-stretch flex gap-[20px] items-center relative shrink-0 w-full md:w-auto">
+							<div class="h-[80px] md:h-[100px] relative rounded-[50px] shrink-0 w-[140px] md:w-[180px] bg-gray-300 overflow-hidden border border-white">
+								<img alt="" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="https://v0-lush-nail.vercel.app/personalized-custom-nail-art-blue.jpg">
+							</div>
+							<p class="font-['Jost:Regular',_sans-serif] font-normal leading-[1.2] relative shrink-0 text-white text-[28px] md:text-[36px] text-center text-nowrap whitespace-pre">PERSONALISED</p>
 						</div>
-						<p
-							class="text-white text-[24px] sm:text-[32px] lg:text-[36px] font-light tracking-[-1px]"
-						>
-							PERSONALIZED
-						</p>
-						</div>
-
 						<!-- BÁN CHẠY -->
-						<div class="flex flex-col items-center sm:items-start gap-3">
-						<div
-							class="w-[150px] h-[100px] rounded-[50px] overflow-hidden border border-white"
-						>
-							<img
-							src="https://v0-lush-nail.vercel.app/best-selling-nail-art-colorful-holographic.jpg"
-							alt="Bán chạy"
-							class="object-cover w-full h-full"
-							/>
-						</div>
-						<p
-							class="text-white text-[24px] sm:text-[32px] lg:text-[36px] font-light tracking-[-1px]"
-						>
-							BÁN CHẠY
-						</p>
+						<div class="content-stretch flex gap-[20px] items-center relative shrink-0 w-full md:w-auto">
+							<div class="h-[80px] md:h-[100px] relative rounded-[50px] shrink-0 w-[140px] md:w-[180px] bg-gray-300 overflow-hidden border border-white">
+								<img alt="" class="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src="https://v0-lush-nail.vercel.app/best-selling-nail-art-colorful-holographic.jpg">
+							</div>
+							<p class="font-['Jost:Regular',_'Noto_Sans:Regular',_sans-serif] font-normal leading-[1.2] relative shrink-0 text-white text-[28px] md:text-[36px] text-center text-nowrap whitespace-pre">BÁN CHẠY</p>
 						</div>
 					</div>
 
@@ -673,8 +648,8 @@
 					</p>
 				</div>
 			
-				<!-- Product Grid -->
-				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 w-full max-w-[1200px]">
+					<!-- Product Grid -->
+					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 w-full max-w-[1200px]">
 			
 					<!-- Product Card 1 -->
 					<div class="group relative bg-[#111] rounded-[20px] overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.4)] hover:scale-[1.02] transition-transform duration-300 flex flex-col">
@@ -688,6 +663,7 @@
 						<p class="text-[#d1d1d1] text-[14px] sm:text-[15px] leading-relaxed flex-grow">
 						Thiết kế tinh tế, phù hợp cho mọi dịp đặc biệt.
 						</p>
+						<div class="mt-3 text-[#a5834a] font-semibold text-[16px] sm:text-[17px]">$27</div>
 						<button class="mt-4 px-5 py-2 rounded-full border border-[#a5834a] text-[#a5834a] hover:bg-[#a5834a] hover:text-black transition self-start">
 						Xem chi tiết
 						</button>
@@ -706,6 +682,7 @@
 						<p class="text-[#d1d1d1] text-[14px] sm:text-[15px] leading-relaxed flex-grow">
 						Bảng màu thời thượng, giữ độ bóng bền lâu.
 						</p>
+						<div class="mt-3 text-[#a5834a] font-semibold text-[16px] sm:text-[17px]">$27</div>
 						<button class="mt-4 px-5 py-2 rounded-full border border-[#a5834a] text-[#a5834a] hover:bg-[#a5834a] hover:text-black transition self-start">
 						Xem chi tiết
 						</button>
@@ -724,14 +701,22 @@
 						<p class="text-[#d1d1d1] text-[14px] sm:text-[15px] leading-relaxed flex-grow">
 						Hỗ trợ tối đa cho các thợ nail chuyên nghiệp.
 						</p>
+						<div class="mt-3 text-[#a5834a] font-semibold text-[16px] sm:text-[17px]">$27</div>
 						<button class="mt-4 px-5 py-2 rounded-full border border-[#a5834a] text-[#a5834a] hover:bg-[#a5834a] hover:text-black transition self-start">
 						Xem chi tiết
 						</button>
 					</div>
 					</div>
 			
-				</div>
-				</div>
+					</div>
+
+					<!-- View More Button -->
+					<div class="w-full flex justify-center mt-2 sm:mt-0">
+						<button class="bg-black text-white px-8 py-3 rounded-full font-['Bricolage_Grotesque:SemiBold',_sans-serif] text-[15px] sm:text-[16px] font-semibold border border-white hover:bg-white hover:text-black transition-all duration-300">
+							Xem thêm
+						</button>
+					</div>
+					</div>
 			</div>
   
 			  
@@ -791,7 +776,6 @@
 					  </div>
 					</div>
 			  
-					<!-- Button -->
 					<button
 					  class="mt-4 bg-black text-white px-8 py-3 rounded-full font-['Bricolage_Grotesque:SemiBold',_sans-serif] text-[15px] sm:text-[16px] font-semibold border border-white hover:bg-white hover:text-black transition-all duration-300">
 					  Xem thêm
@@ -801,10 +785,10 @@
 				</div>
 			</div>
 			  
-			<div class="bg-[#090707] h-[1026px] overflow-clip relative shrink-0 w-full" data-name="contact form">
-				<p class="absolute font-['Bricolage_Grotesque:SemiBold',_sans-serif] font-semibold leading-[1.2] left-1/2 text-[48px] text-center text-nowrap text-white top-[72px] tracking-[-1.92px] translate-x-[-50%] whitespace-pre" style="font-variation-settings:'opsz' 14, 'wdth' 100">Liên hệ với chúng tôi</p>
-				<div class="absolute content-stretch flex items-start justify-between left-[calc(50%+0.5px)] top-[213px] translate-x-[-50%] w-[1073px]">
-					<div class="content-stretch flex flex-col gap-[30px] items-center relative shrink-0 w-[174px]">
+			<div class="bg-[#090707] noise-overlay h-[1320px] md:h-[1026px] overflow-clip relative shrink-0 w-full" data-name="contact form">
+				<p class="absolute font-['Bricolage_Grotesque:SemiBold',_sans-serif] font-semibold leading-[1.2] left-1/2 text-[28px] sm:text-[36px] lg:text-[48px] text-center text-white top-[72px] tracking-[-1.92px] translate-x-[-50%] px-4 whitespace-normal lg:whitespace-pre" style="font-variation-settings:'opsz' 14, 'wdth' 100">Liên hệ với chúng tôi</p>
+					<div class="relative grid grid-cols-1 sm:grid-cols-2 lg:flex content-stretch items-start lg:justify-between gap-6 sm:gap-8 px-4 sm:px-6 lg:px-0 w-full mt-40 sm:mt-44 lg:mt-0 lg:absolute lg:left-[calc(50%+0.5px)] lg:top-[213px] lg:translate-x-[-50%] lg:w-[1073px]">
+						<div class="content-stretch flex flex-col gap-[30px] items-center relative shrink-0 w-full lg:w-[174px]">
 						<div class="h-[26px] relative shrink-0 w-[20px]" data-name="Location Tick">
 							<div class="absolute inset-[-2.88%_-3.75%]">
 								<svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 22 28">
@@ -823,23 +807,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="absolute flex items-center justify-center left-[calc(50%-0.637px)] top-[calc(50%+434.349px)] translate-x-[-50%] translate-y-[-50%]">
-						<div class="flex-none rotate-[180deg]">
-							<div class="content-stretch flex gap-[12px] items-center relative">
-								<div class="flex items-center justify-center relative shrink-0">
-									<div class="flex-none rotate-[180deg]">
-										<div class="h-[460.448px] opacity-50 w-[605.137px]"></div>
-									</div>
-								</div>
-								<div class="flex items-center justify-center relative shrink-0">
-									<div class="flex-none scale-y-[-100%]">
-										<div class="h-[460.448px] opacity-50 w-[605.137px]"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="content-stretch flex flex-col gap-[28px] items-center relative shrink-0 w-[178px]">
+						<div class="content-stretch flex flex-col gap-[28px] items-center relative shrink-0 w-full lg:w-[178px]">
 						<div class="relative shrink-0 size-[30px]" data-name="Calling 1">
 							<svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 30 30">
 								<g id="Calling 1">
@@ -860,7 +828,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="content-stretch flex flex-col gap-[27px] items-center relative shrink-0 w-[182px]">
+						<div class="content-stretch flex flex-col gap-[27px] items-center relative shrink-0 w-full lg:w-[182px]">
 						<div class="h-[26.75px] relative shrink-0 w-[25px]" data-name="Time Circle 6">
 							<div class="absolute inset-[-2.8%_-3%]">
 								<svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 27 29">
@@ -884,7 +852,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-[273px]">
+					<div class="content-stretch flex flex-col gap-[24px] items-center relative shrink-0 w-full lg:w-[273px]">
 						<div class="h-[28px] relative shrink-0 w-[30px]" data-name="Like 1">
 							<svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 30 28">
 								<g id="Like 1">
@@ -902,78 +870,42 @@
 						</div>
 					</div>
 				</div>
-				<div class="absolute content-stretch flex flex-col gap-[15px] items-end left-[calc(50%+0.5px)] top-[429px] translate-x-[-50%] w-[625px]">
+				<div class="relative content-stretch flex flex-col gap-[15px] items-start w-full px-4 sm:px-6 lg:px-0 mt-6 sm:mt-8 lg:mt-0 lg:absolute lg:items-end lg:left-[calc(50%+0.5px)] lg:top-[429px] lg:translate-x-[-50%] lg:w-[625px]">
 					<div class="content-stretch flex flex-col gap-[30px] items-start relative shrink-0 w-full">
-						<div class="content-stretch flex gap-[52px] items-start relative shrink-0">
-							<div class="content-stretch flex flex-col gap-[36px] items-start relative shrink-0 w-[274px]">
-								<div class="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
-									<div class="flex flex-col font-['Bricolage_Grotesque:Regular',_sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[18px] text-[rgba(254,255,229,0.7)] w-full" style="font-variation-settings:'opsz' 14, 'wdth' 100">
-										<p class="leading-[normal]">First Name</p>
-									</div>
-									<div class="h-0 relative shrink-0 w-full">
-										<div class="absolute bottom-0 left-0 right-0 top-[-1.5px]">
-											<svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 274 2">
-												<line id="Line 7" stroke="var(--stroke-0, #646464)" stroke-width="1.5" x2="274" y1="1.25" y2="1.25"></line>
-											</svg>
-										</div>
-									</div>
-								</div>
-								<div class="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
-									<div class="flex flex-col font-['Bricolage_Grotesque:Regular',_sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[18px] text-[rgba(254,255,229,0.6)] w-full" style="font-variation-settings:'opsz' 14, 'wdth' 100">
-										<p class="leading-[normal]">Email Address</p>
-									</div>
-									<div class="h-0 relative shrink-0 w-full">
-										<div class="absolute bottom-0 left-0 right-0 top-[-1.5px]">
-											<svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 274 2">
-												<line id="Line 7" stroke="var(--stroke-0, #646464)" stroke-width="1.5" x2="274" y1="1.25" y2="1.25"></line>
-											</svg>
-										</div>
-									</div>
-								</div>
-								<div class="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
-									<div class="flex flex-col font-['Bricolage_Grotesque:Regular',_sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[18px] text-[rgba(254,255,229,0.7)] w-full" style="font-variation-settings:'opsz' 14, 'wdth' 100">
-										<p class="leading-[normal]">Subject</p>
-									</div>
-									<div class="h-0 relative shrink-0 w-full">
-										<div class="absolute bottom-0 left-0 right-0 top-[-1.5px]">
-											<svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 274 2">
-												<line id="Line 7" stroke="var(--stroke-0, #646464)" stroke-width="1.5" x2="274" y1="1.25" y2="1.25"></line>
-											</svg>
-										</div>
-									</div>
-								</div>
+						<!-- Group 1: First + Last -->
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-[24px] w-full">
+							<div class="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
+								<div class="flex flex-col font-['Bricolage_Grotesque:Regular',_sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[18px] text-[rgba(254,255,229,0.7)] w-full" style="font-variation-settings:'opsz' 14, 'wdth' 100"><p class="leading-[normal]">First Name</p></div>
+								<div class="h-0 relative shrink-0 w-full"><div class="absolute bottom-0 left-0 right-0 top-[-1.5px]"><svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 274 2"><line id="Line 7" stroke="var(--stroke-0, #646464)" stroke-width="1.5" x2="274" y1="1.25" y2="1.25"></line></svg></div></div>
 							</div>
-							<div class="content-stretch flex flex-col gap-[36px] items-start relative shrink-0 w-[266px]">
-								<div class="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
-									<div class="flex flex-col font-['Bricolage_Grotesque:Regular',_sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[18px] text-[rgba(254,255,229,0.6)] w-full" style="font-variation-settings:'opsz' 14, 'wdth' 100">
-										<p class="leading-[normal]">Last Name</p>
-									</div>
-									<div class="h-0 relative shrink-0 w-full">
-										<div class="absolute bottom-0 left-0 right-0 top-[-1.5px]">
-											<svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 266 2">
-												<line id="Line 8" stroke="var(--stroke-0, #646464)" stroke-width="1.5" x2="266" y1="1.25" y2="1.25"></line>
-											</svg>
-										</div>
-									</div>
-								</div>
-								<div class="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
-									<div class="flex flex-col font-['Bricolage_Grotesque:Regular',_sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[18px] text-[rgba(254,255,229,0.6)] w-full" style="font-variation-settings:'opsz' 14, 'wdth' 100">
-										<p class="leading-[normal]">Phone</p>
-									</div>
-									<div class="h-0 relative shrink-0 w-full">
-										<div class="absolute bottom-0 left-0 right-0 top-[-1.5px]">
-											<svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 266 2">
-												<line id="Line 8" stroke="var(--stroke-0, #646464)" stroke-width="1.5" x2="266" y1="1.25" y2="1.25"></line>
-											</svg>
-										</div>
-									</div>
-								</div>
+							<div class="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
+								<div class="flex flex-col font-['Bricolage_Grotesque:Regular',_sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[18px] text-[rgba(254,255,229,0.6)] w-full" style="font-variation-settings:'opsz' 14, 'wdth' 100"><p class="leading-[normal]">Last Name</p></div>
+								<div class="h-0 relative shrink-0 w-full"><div class="absolute bottom-0 left-0 right-0 top-[-1.5px]"><svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 266 2"><line id="Line 8" stroke="var(--stroke-0, #646464)" stroke-width="1.5" x2="266" y1="1.25" y2="1.25"></line></svg></div></div>
 							</div>
 						</div>
+
+						<!-- Group 2: Email + Phone -->
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-[24px] w-full">
+							<div class="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
+								<div class="flex flex-col font-['Bricolage_Grotesque:Regular',_sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[18px] text-[rgba(254,255,229,0.6)] w-full" style="font-variation-settings:'opsz' 14, 'wdth' 100"><p class="leading-[normal]">Email Address</p></div>
+								<div class="h-0 relative shrink-0 w-full"><div class="absolute bottom-0 left-0 right-0 top-[-1.5px]"><svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 274 2"><line id="Line 7" stroke="var(--stroke-0, #646464)" stroke-width="1.5" x2="274" y1="1.25" y2="1.25"></line></svg></div></div>
+							</div>
+							<div class="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
+								<div class="flex flex-col font-['Bricolage_Grotesque:Regular',_sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[18px] text-[rgba(254,255,229,0.6)] w-full" style="font-variation-settings:'opsz' 14, 'wdth' 100"><p class="leading-[normal]">Phone</p></div>
+								<div class="h-0 relative shrink-0 w-full"><div class="absolute bottom-0 left-0 right-0 top-[-1.5px]"><svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 266 2"><line id="Line 8" stroke="var(--stroke-0, #646464)" stroke-width="1.5" x2="266" y1="1.25" y2="1.25"></line></svg></div></div>
+							</div>
+						</div>
+
+						<!-- Subject (single line) -->
+						<div class="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
+							<div class="flex flex-col font-['Bricolage_Grotesque:Regular',_sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[18px] text-[rgba(254,255,229,0.7)] w-full" style="font-variation-settings:'opsz' 14, 'wdth' 100"><p class="leading-[normal]">Subject</p></div>
+							<div class="h-0 relative shrink-0 w-full"><div class="absolute bottom-0 left-0 right-0 top-[-1.5px]"><svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 274 2"><line id="Line 7" stroke="var(--stroke-0, #646464)" stroke-width="1.5" x2="274" y1="1.25" y2="1.25"></line></svg></div></div>
+						</div>
+					</div>
 						<div class="h-[148px] relative rounded-[30px] shrink-0 w-full">
 							<div class="h-[148px] leading-[0] overflow-clip relative rounded-[inherit] w-full">
 								<div class="absolute flex flex-col font-['Bricolage_Grotesque:Medium',_sans-serif] font-medium justify-center left-[16.5px] text-[#646464] text-[20px] top-[-46px] translate-y-[-50%] w-[274px]" style="font-variation-settings:'opsz' 14, 'wdth' 100">
-									<p class="leading-[normal]">Subject</p>
+									<p class="leading-[normal]">Tin nhắn</p>
 								</div>
 								<div class="absolute flex flex-col font-['Bricolage_Grotesque:Regular',_sans-serif] font-normal justify-center left-[17px] text-[18px] text-[rgba(254,255,229,0.6)] text-nowrap top-[39px] translate-y-[-50%]" style="font-variation-settings:'opsz' 14, 'wdth' 100">
 									<p class="leading-[normal] whitespace-pre">Tin nhắn</p>
@@ -982,7 +914,7 @@
 							<div aria-hidden="true" class="absolute border-[#646464] border-[1.5px] border-solid inset-0 pointer-events-none rounded-[30px]"></div>
 						</div>
 					</div>
-					<div class="box-border content-stretch flex flex-col gap-[10px] items-start px-0 py-[14px] relative shrink-0" data-name="button">
+					<div class="box-border content-stretch flex flex-col gap-[10px] items-center px-0 py-[14px] relative shrink-0 self-center lg:self-end" data-name="button">
 						<div class="box-border content-stretch flex gap-[10px] h-[36px] items-center justify-center px-[10px] py-[4px] relative rounded-[8px] shrink-0 w-[101px]">
 							<div aria-hidden="true" class="absolute border-[#646464] border-[1.5px] border-solid inset-0 pointer-events-none rounded-[8px]"></div>
 							<div class="flex flex-col font-['Bricolage_Grotesque:Regular',_sans-serif] font-normal justify-center leading-[0] relative shrink-0 text-[18px] text-[rgba(254,255,229,0.7)] text-nowrap" style="font-variation-settings:'opsz' 14, 'wdth' 100">
@@ -993,11 +925,11 @@
 				</div>
 			</div>
 			  
-			<div class="bg-[#423321] noise-overlay h-[615px] relative shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] shrink-0 w-full" data-name="Footer">
+			<footer class="bg-[#423321] min-h-[760px] sm:min-h-0 md:h-auto lg:h-auto lg:min-h-0 relative shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] shrink-0 w-full" data-name="Footer">
 				<div class="flex flex-col items-center size-full">
-					<div class="container box-border content-stretch flex flex-col gap-[24px] h-[615px] items-center py-[48px] relative w-full">
-						<div class="content-stretch flex items-start justify-between relative shrink-0 w-full">
-							<div class="content-stretch flex flex-col gap-[48px] items-start relative shrink-0 w-[380px]">
+					<div class="container box-border content-stretch flex flex-col gap-[24px] min-h-[760px] sm:min-h-0 md:h-auto lg:h-auto lg:min-h-0 items-center py-[48px] px-6 sm:px-8 lg:px-0 relative w-full">
+						<div class="content-stretch flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-0 relative shrink-0 w-full">
+							<div class="content-stretch flex flex-col gap-[48px] items-start relative shrink-0 w-full lg:w-[380px]">
 								<div class="content-stretch flex flex-col gap-[15px] items-start leading-[0] relative shrink-0 w-full">
 									<div class="grid-cols-[max-content] grid-rows-[max-content] inline-grid place-items-start relative shrink-0" data-name="Layer 1">
 										<div class="[grid-area:1_/_1] grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] ml-0 mt-0 place-items-start relative" data-name="Group">
@@ -1093,7 +1025,7 @@
 									<p class="relative shrink-0" style="font-variation-settings:'opsz' 14, 'wdth' 100">Shipping</p>
 								</div>
 							</div>
-							<div class="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-[242px]">
+							<div class="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full lg:w-[242px]">
 								<p class="font-['Bricolage_Grotesque:SemiBold',_sans-serif] font-semibold leading-[32px] relative shrink-0 text-[20px] text-white uppercase w-full" style="font-variation-settings:'opsz' 14, 'wdth' 100">Thông tin liên hệ</p>
 								<div class="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 w-full">
 									<div class="content-stretch flex flex-col font-['Jost:Regular',_sans-serif] font-normal gap-[12px] items-start leading-[0] relative shrink-0 text-[0px] text-white tracking-[-0.32px] w-full">
@@ -1113,14 +1045,14 @@
 								</div>
 							</div>
 						</div>
-						<div class="h-0 relative shrink-0 w-full">
+							<div class="h-0 relative shrink-0 w-full mt-6 lg:mt-0">
 							<div class="absolute bottom-0 left-0 right-0 top-[-1px]">
 								<svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1248 1">
 									<line id="Line 103" stroke="var(--stroke-0, #787878)" x2="1248" y1="0.5" y2="0.5"></line>
 								</svg>
 							</div>
 						</div>
-						<div class="content-stretch flex items-center justify-between relative shrink-0 w-full">
+							<div class="content-stretch flex flex-col sm:flex-row items-center justify-between gap-4 relative shrink-0 w-full">
 							<p class="font-['Jost:Regular',_sans-serif] font-normal leading-[24px] relative shrink-0 text-[16px] text-nowrap text-white tracking-[-0.32px] whitespace-pre">All Rights Reserved 2025  LUST NAIL</p>
 							<div class="box-border content-stretch flex gap-[6px] items-center justify-center px-[10px] py-[9px] relative shrink-0">
 								<div aria-hidden="true" class="absolute border border-[#7d7d7d] border-solid inset-0 pointer-events-none"></div>
@@ -1133,7 +1065,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="content-stretch flex gap-[8px] items-center relative shrink-0">
+							<div class="content-stretch flex flex-wrap sm:flex-nowrap gap-[8px] items-center justify-center sm:justify-start relative shrink-0 w-full lg:w-auto lg:justify-start">
 								<div class="h-[25px] relative shrink-0 w-[40px]" data-name="Img">
 									<svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 40 25">
 										<g id="Img">
@@ -1286,7 +1218,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</foot>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script>
