@@ -52,12 +52,44 @@
 				margin-left: 0;
 				margin-right: 0;
 			}
+
+			.fixed {
+				transition: all 0.3s ease;
+				backdrop-filter: blur(12px);
+				-webkit-backdrop-filter: blur(12px);
+			}
+
+			/* Khi scroll xuống – nền #f8f7f6 mờ nhìn xuyên được */
+			.nav-bg-blur {
+				background-color: rgba(248, 247, 246, 0.5) !important;
+				/* màu #f8f7f6 với 50% độ đục - nhìn xuyên thấu */
+				backdrop-filter: blur(8px);
+				/* hiệu ứng mờ phía sau */
+				-webkit-backdrop-filter: blur(8px);
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+				/* nhẹ nhàng hơn */
+			}
+
+			#mobile-menu {
+				animation: fadeIn 0.25s ease;
+			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+					transform: translateY(-5px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
 		</style>
 	</head>
 	<body class="__variable_fb6800 __variable_3221f3 __variable_8ba1a1 __variable_cc80f9 antialiased">
-		<div class="w-full min-h-screen overflow-x-clip">
-		<div class="bg-white content-stretch flex flex-col items-start relative size-full" data-name="Nail">
-			<header class="sticky top-0 z-50 bg-white flex flex-col w-full" data-name="Nav">
+		<div class="w-full min-h-screen">
+		<div class="bg-white content-stretch flex flex-col items-start size-full" data-name="Nail">
+			<header class="bg-white flex flex-col w-full" data-name="Nav">
 				<div class="bg-[#bbaa8e] flex flex-wrap items-center justify-center gap-3 sm:gap-6 px-4 py-2 w-full text-center">
 				<p class="text-[#141414] text-[13px] sm:text-[14px] font-['Bricolage_Grotesque:Regular',_sans-serif] leading-snug line-clamp-1 sm:line-clamp-none">
 					Tìm hiểu về chương trình đào tạo của Lush Nail tại đây, nhận ưu đãi lên đến 50%
@@ -103,12 +135,50 @@
 					</div>
 				</div>
 			  
-				<div class="bg-[#f8f7f6] flex overflow-x-auto whitespace-nowrap items-center justify-center gap-6 sm:gap-10 md:gap-[90px] px-4 py-3">
-				  <a href="#" class="text-[#333333] text-[13px] sm:text-[14px] md:text-[15px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Trang chủ</a>
-				  <a href="#" class="text-[#333333] text-[13px] sm:text-[14px] md:text-[15px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Câu chuyện</a>
-				  <a href="#" class="text-[#333333] text-[13px] sm:text-[14px] md:text-[15px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Cửa hàng</a>
-				  <a href="#" class="text-[#333333] text-[13px] sm:text-[14px] md:text-[15px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Khoá học</a>
+				<!-- Navbar desktop / tablet -->
+				<div
+					id="main-navbar"
+					class="hidden md:flex bg-[#f8f7f6] overflow-x-auto whitespace-nowrap items-center justify-center gap-6 sm:gap-10 md:gap-[90px] px-4 py-3 shadow-sm transition-all duration-300"
+				>
+					<a href="#" class="text-[#333] text-[14px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Trang chủ</a>
+					<a href="#" class="text-[#333] text-[14px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Cửa hàng</a>
+					<a href="#" class="text-[#333] text-[14px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Khoá học</a>
+					<a href="#" class="text-[#333] text-[14px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Câu chuyện</a>
+					<a href="#" class="text-[#333] text-[14px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Về chúng tôi</a>
 				</div>
+
+				<!-- Navbar mobile -->
+				<div
+					id="mobile-navbar"
+					class="flex md:hidden bg-[#f8f7f6] items-center justify-between px-4 py-3 shadow-sm transition-all duration-300 relative"
+				>
+					<div class="flex gap-4 items-center">
+						<a href="#" class="text-[#333] text-[14px] font-['Bricolage_Grotesque:Regular',_sans-serif]">Trang chủ</a>
+						<a href="#" class="text-[#333] text-[14px] font-['Bricolage_Grotesque:Regular',_sans-serif]">Cửa hàng</a>
+						<a href="#" class="text-[#333] text-[14px] font-['Bricolage_Grotesque:Regular',_sans-serif]">Khoá học</a>
+					</div>
+
+					<!-- Icon menu -->
+					<button
+						id="mobile-menu-toggle"
+						class="text-black transition-colors"
+						aria-label="Toggle mobile menu"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+						</svg>
+					</button>
+
+					<!-- Dropdown menu (ẩn ban đầu) -->
+					<div
+						id="mobile-menu"
+						class="hidden absolute top-full left-0 w-full bg-[#f8f7f6] flex flex-col items-center gap-3 py-4 shadow-md z-50"
+					>
+						<a href="#" class="text-[#333] text-[14px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Câu chuyện</a>
+						<a href="#" class="text-[#333] text-[14px] font-['Bricolage_Grotesque:Regular',_sans-serif] hover:text-black transition">Về chúng tôi</a>
+					</div>
+				</div>
+
 			</header>
 			  
 			<div class="bg-white flex flex-col items-start relative w-full noise-overlay" data-name="hero">
@@ -895,7 +965,7 @@
 								<div class="blaze-track-container">
 									<div class="blaze-track">
 						<!-- Slide 1 -->
-										<div class="blaze-slide flex justify-center">
+						<div class="blaze-slide flex justify-center">
 						  <div class="w-[85%] sm:w-[300px] md:w-[350px] h-[260px] sm:h-[280px] md:h-[297px] rounded-lg overflow-hidden">
 							<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bf09c1f6cef427767a73628e8198a38125164479-JN9g6jcn44DqGznlyOvKoam7QsFqZ0.png"
 							  alt="Feedback 1" class="w-full h-full object-cover" />
@@ -903,7 +973,7 @@
 						</div>
 					
 						<!-- Slide 2 -->
-										<div class="blaze-slide flex justify-center">
+						<div class="blaze-slide flex justify-center">
 						  <div class="w-[85%] sm:w-[300px] md:w-[350px] h-[260px] sm:h-[280px] md:h-[297px] rounded-lg overflow-hidden">
 							<img src="https://v0-lush-nail.vercel.app/feedback/b1eff10d70fb0b671acfc1005a6bfdbf70712d0e.png"
 							  alt="Feedback 2" class="w-full h-full object-cover" />
@@ -911,7 +981,7 @@
 						</div>
 					
 						<!-- Slide 3 -->
-										<div class="blaze-slide flex justify-center">
+						<div class="blaze-slide flex justify-center">
 						  <div class="w-[85%] sm:w-[300px] md:w-[350px] h-[260px] sm:h-[280px] md:h-[297px] rounded-lg overflow-hidden">
 							<img src="https://v0-lush-nail.vercel.app/feedback/bda5e7d167ef225d85a72b06bf075a6857c9d7de.png"
 							  alt="Feedback 3" class="w-full h-full object-cover" />
@@ -919,7 +989,7 @@
 						</div>
 					
 						<!-- Slide 4 -->
-										<div class="blaze-slide flex justify-center">
+						<div class="blaze-slide flex justify-center">
 						  <div class="w-[85%] sm:w-[300px] md:w-[350px] h-[260px] sm:h-[280px] md:h-[297px] rounded-lg overflow-hidden">
 							<img src="https://v0-lush-nail.vercel.app/feedback/454638d155b75fbe3acd9fd431ad8705c0dc52dd.png"
 							  alt="Feedback 4" class="w-full h-full object-cover" />
@@ -927,7 +997,7 @@
 						</div>
 					
 						<!-- Slide 5 -->
-										<div class="blaze-slide flex justify-center">
+						<div class="blaze-slide flex justify-center">
 						  <div class="w-[85%] sm:w-[300px] md:w-[350px] h-[260px] sm:h-[280px] md:h-[297px] rounded-lg overflow-hidden">
 							<img src="https://v0-lush-nail.vercel.app/feedback/361214a7739ac356f80d7d08b6745f878e9cd7b7.png"
 							  alt="Feedback 5" class="w-full h-full object-cover" />
@@ -1385,6 +1455,122 @@
 				</div>
 			</footer>
 		</div>
+
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				// --- Lấy phần tử cần dùng ---
+				const header = document.querySelector("header[data-name='Nav']");
+				const logo = header.querySelector("[data-name='Asset 1 1']");
+				const desktopNav = document.getElementById("main-navbar");
+				const mobileNav = document.getElementById("mobile-navbar");
+				const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+				const mobileMenu = document.getElementById("mobile-menu");
+			
+				if (!header || !logo) return;
+			
+				// --- Xác định vị trí logo để kích hoạt sticky ---
+				const triggerPoint = logo.offsetTop + logo.offsetHeight;
+			
+				// --- Hàm áp dụng sticky cho navbar (desktop và mobile đều phụ thuộc vào scroll qua logo) ---
+				const applySticky = (el) => {
+					if (!el) return;
+					if (window.scrollY > triggerPoint) {
+						el.classList.add(
+							"fixed",
+							"top-0",
+							"left-0",
+							"right-0",
+							"z-[100]",
+							"shadow-md",
+							"nav-bg-blur"
+						);
+					} else {
+						el.classList.remove(
+							"fixed",
+							"top-0",
+							"left-0",
+							"right-0",
+							"z-[100]",
+							"shadow-md",
+							"nav-bg-blur"
+						);
+					}
+				};
+
+				// --- Hàm áp dụng sticky cho mobile navbar với xử lý class relative ---
+				const applyMobileSticky = () => {
+					if (!mobileNav) return;
+					if (window.scrollY > triggerPoint) {
+						mobileNav.classList.add(
+							"fixed",
+							"top-0",
+							"left-0",
+							"right-0",
+							"z-[100]",
+							"shadow-md",
+							"nav-bg-blur"
+						);
+						mobileNav.classList.remove("relative");
+					} else {
+						mobileNav.classList.remove(
+							"fixed",
+							"top-0",
+							"left-0",
+							"right-0",
+							"z-[100]",
+							"shadow-md",
+							"nav-bg-blur"
+						);
+						mobileNav.classList.add("relative");
+					}
+				};
+
+				// --- Lắng nghe sự kiện scroll để gắn sticky cho cả desktop & mobile ---
+				const handleScroll = () => {
+					applySticky(desktopNav);
+					applyMobileSticky();
+				};
+
+				window.addEventListener("scroll", handleScroll);
+
+				// Apply on initial load to ensure correct state
+				handleScroll();
+			
+				// --- Toggle dropdown menu cho mobile ---
+				if (mobileMenuToggle && mobileMenu) {
+					mobileMenuToggle.addEventListener("click", () => {
+					const isHidden = mobileMenu.classList.contains("hidden");
+					
+					if (isHidden) {
+						mobileMenu.classList.remove("hidden");
+						mobileMenu.classList.add("flex");
+						mobileMenuToggle.classList.remove("text-black");
+						mobileMenuToggle.classList.add("text-[#bbaa8e]");
+					} else {
+						mobileMenu.classList.add("hidden");
+						mobileMenu.classList.remove("flex");
+						mobileMenuToggle.classList.remove("text-[#bbaa8e]");
+						mobileMenuToggle.classList.add("text-black");
+					}
+				});
+				
+					// --- Đóng dropdown menu khi click ra ngoài ---
+					document.addEventListener("click", (event) => {
+						const isClickInsideMenu = mobileMenu.contains(event.target);
+						const isClickOnToggle = mobileMenuToggle.contains(event.target);
+						
+						if (!isClickInsideMenu && !isClickOnToggle && !mobileMenu.classList.contains("hidden")) {
+							mobileMenu.classList.add("hidden");
+							mobileMenu.classList.remove("flex");
+							mobileMenuToggle.classList.remove("text-[#bbaa8e]");
+							mobileMenuToggle.classList.add("text-black");
+						}
+					});
+				}
+			});
+		</script>
+			
+			
 		<script src="https://cdn.jsdelivr.net/npm/blaze-slider@latest/dist/blaze-slider.min.js"></script>
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
